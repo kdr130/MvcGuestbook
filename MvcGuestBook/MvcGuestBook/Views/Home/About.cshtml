@@ -2,6 +2,13 @@
     ViewBag.Title = "關於";
 }
 
+@RouteTable.Routes.GetVirtualPath(
+    Request.RequestContext,  // 取得現有網址要求資訊
+    new RouteValueDictionary(new{ page = 1 })  //設定一個新的路由參數
+).VirtualPath
+
+<!-- 畫面會顯示 /Home/About?page=1 -->
+
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
     <h2>@ViewBag.Message</h2>
