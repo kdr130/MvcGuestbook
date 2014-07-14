@@ -44,6 +44,11 @@ namespace MvcGuestBook.Controllers
             return View(guestbook); // 將網頁的資料再次船回到 View，避免資料遺失
         }
 
+        public ActionResult JavaScriptTest()
+        {
+            return JavaScript("alert('123')");
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
