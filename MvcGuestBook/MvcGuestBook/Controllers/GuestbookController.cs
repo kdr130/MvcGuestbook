@@ -33,8 +33,9 @@ namespace MvcGuestBook.Controllers
         // 會自動將網頁表單中的名稱 對應到 Guestbook 類別中的屬性
         public ActionResult Write(Guestbook guestbook)  
         {
-            if (ModelState.IsValid) // 回傳 false 表示驗證失敗
+            if (ModelState.IsValid) // 若回傳 false 表示驗證失敗
             {
+                guestbook.CreatedOn = DateTime.Parse("2013/07/11");
                 db.Guestbooks.Add(guestbook);
                 db.SaveChanges();
                 return RedirectToAction("Index");

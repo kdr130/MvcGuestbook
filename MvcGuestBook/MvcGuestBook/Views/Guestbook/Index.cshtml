@@ -12,13 +12,16 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.姓名)
+            <font size='5' color='666633'>
+            @Html.DisplayNameFor(model => model.Member.Name)
+ 
+            </font>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.Member.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.內容)
+            @Html.DisplayNameFor(model => model.Message)
         </th>
         <th></th>
     </tr>
@@ -26,18 +29,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.姓名)
+            @Html.DisplayFor(modelItem => item.Member.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
+            @Html.DisplayFor(modelItem => item.Member.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.內容)
+            @Html.DisplayFor(modelItem => item.Message)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.No }) |
+            @Html.ActionLink("Details", "Details", new { id=item.No }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.No })
         </td>
     </tr>
 }

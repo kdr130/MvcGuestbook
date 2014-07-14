@@ -18,5 +18,6 @@ namespace MvcGuestBook.Models
         }
 
         public DbSet<Guestbook> Guestbooks { get; set; }
+        public DbSet<Member> Members { get; set; }
     }
 }

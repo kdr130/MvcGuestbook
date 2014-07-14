@@ -28,5 +28,18 @@ namespace MvcGuestBook.Controllers
 
             return View();
         }
+
+        //TODO:描述
+        [NonAction] // 不要發布到web 上 or 將 public 改 private
+        public ActionResult Testing()
+        {
+            return View();
+        }
+
+        //http://localhost:2048/Home/1
+        protected override void HandleUnknownAction(String actionName)
+        {
+            Response.Redirect("https://www.facebook.com/");
+        }
     }
 }

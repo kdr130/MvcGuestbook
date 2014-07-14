@@ -16,7 +16,7 @@ namespace MvcGuestBook
     {
         protected void Application_Start()
         {
-           // System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<MvcGuestBook.Models.MvcGuestBookContext>());
+           System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<MvcGuestBook.Models.MvcGuestBookContext>());
 
             AreaRegistration.RegisterAllAreas();
 

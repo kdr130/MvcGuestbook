@@ -17,7 +17,6 @@ namespace MvcGuestBook
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-               // constraints: new { id = @"\d+" } // id 的內容要全部都為數字才算成功
             );
         }
     }
