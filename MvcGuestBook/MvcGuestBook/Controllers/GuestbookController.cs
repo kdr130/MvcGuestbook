@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcGuestBook.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace MvcGuestBook.Controllers
 {
@@ -18,6 +19,8 @@ namespace MvcGuestBook.Controllers
 
         public ActionResult Index()
         {
+            TempData["temp"] = "tempData可不可以用呢?";
+            //ViewBag.test = TempData["temp"];
             return View(db.Guestbooks.ToList());
         }
 
@@ -44,9 +47,30 @@ namespace MvcGuestBook.Controllers
             return View(guestbook); // 將網頁的資料再次船回到 View，避免資料遺失
         }
 
-        public ActionResult JavaScriptTest()
+        public ActionResult JavaScriptTest() //會執行兩次!?
         {
             return JavaScript("alert('123')");
+        }
+
+        public class GuestbookForm
+        {
+            [Required]
+            public int Type { get; set; }
+            [Required]
+            public string Name { get; set; }
+            [Required]
+            public string Email { get; set; }
+            [Required]
+            public string Body { get; set; }
+        }
+
+        public ActionResult TestForm(GuestbookForm gbook)
+        {
+            if ( !ModelState.IsValid ) {
+                return View(); 
+            }
+            //ViewData.Model = form["Confirmedpassword"];
+            return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)

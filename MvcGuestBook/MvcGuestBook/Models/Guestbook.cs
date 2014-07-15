@@ -45,8 +45,8 @@ namespace MvcGuestBook.Models
        // [RegularExpression(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1.3}\.| (([\w-]+\.)+))([a-zA-Z]{2,4})$", ErrorMessage = "請輸入正確的Email格式")]
         public string Email { get; set; }
 
-        [Range(1, 3, ErrorMessage = "請選擇代表圖示")]
-        public int EmotionIcon { get; set; }
+       //[Range(1, 3, ErrorMessage = "請選擇代表圖示")]
+       //public int EmotionIcon { get; set; }
 
         public ICollection<Guestbook> Guestbooks { get; set; }
         //}

@@ -11,7 +11,7 @@ namespace MvcGuestBook.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "修改此範本即可開始著手進行您的 ASP.NET MVC 應用程式。";
-
+            ViewBag.Test = "哇哈哈";
             return View();
         }
 
@@ -39,7 +39,7 @@ namespace MvcGuestBook.Controllers
         //http://localhost:2048/Home/1
         protected override void HandleUnknownAction(String actionName)
         {
-            Response.Redirect("https://www.facebook.com/");
+            Response.Redirect("http://www.google.com/");
         }
     }
 }
