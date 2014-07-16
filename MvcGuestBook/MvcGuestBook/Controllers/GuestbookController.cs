@@ -62,15 +62,34 @@ namespace MvcGuestBook.Controllers
             public string Email { get; set; }
             [Required]
             public string Body { get; set; }
+
+            public string Logintime { get; set; }
         }
 
-        public ActionResult TestForm(GuestbookForm gbook)
+        public ActionResult TestForm()
         {
-            if ( !ModelState.IsValid ) {
-                return View(); 
-            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult TestForm(/*[Bind(Exclude="Logintime")]GuestbookForm gbook*/
+            FormCollection form)
+        {
+          //  if ( !ModelState.IsValid ) {
+          //  return View(); 
+          //  }
             //ViewData.Model = form["Confirmedpassword"];
-            return RedirectToAction("Index", "Home");
+           // return RedirectToAction("Index", "Home");
+
+            GuestbookForm gbook = new GuestbookForm();
+            //UpdateModel<GuestbookForm>(gbook);
+            if (!TryUpdateModel<GuestbookForm>(gbook))
+            {
+                // 模型連結發生失敗
+                return View();
+            }
+            
+            return Redirect("/");
         }
 
         protected override void Dispose(bool disposing)
