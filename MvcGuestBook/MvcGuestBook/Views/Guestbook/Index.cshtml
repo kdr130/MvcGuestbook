@@ -4,7 +4,6 @@
     ViewBag.Title = "顯示留言";
 }
 
-
 <h2>顯示留言</h2>
 
 <p>
@@ -18,7 +17,6 @@
         <th>
             <font size='5' color='666633'>
             @Html.DisplayNameFor(model => model.Member.Name)
- 
             </font>
         </th>
         <th>
@@ -27,7 +25,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Message)
         </th>
-        <th></th>
+        <th>
+           
+
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -50,3 +51,21 @@
 }
 
 </table>
+    
+    @*<script type="text/javascript">
+        var msg = "@TempData["Msg"]"
+        if (msg != "")
+        { alert(msg); }
+      </script>*@
+
+    @{
+        var isVaild = true;
+        if (isVaild) {
+            <text> 有權限! </text>
+        }
+    }
+
+    @{
+        ViewBag.BlogID = "BLOG01";
+    }
+    <a id = "Link@(ViewBag.BlogID)" href ="http://www.google.com"> test blog</a>

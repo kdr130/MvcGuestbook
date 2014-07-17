@@ -21,6 +21,7 @@ namespace MvcGuestBook.Controllers
         {
             TempData["temp"] = "tempData可不可以用呢?";
             //ViewBag.test = TempData["temp"];
+            TempData["Msg"] = "javascript test";
             return View(db.Guestbooks.ToList());
         }
 
