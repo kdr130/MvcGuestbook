@@ -2,7 +2,8 @@
     ViewBag.Title = "首頁";
 }
 @section featured {
-    <section class="featured">
+    @*會放在在 _layout.cshtml的 @RenderSection("featured", required: false) *@
+    <section class="featured"> 
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1>@ViewBag.Title.</h1>
