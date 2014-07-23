@@ -67,14 +67,10 @@ namespace MvcGuestBook.Controllers
             public string Logintime { get; set; }
         }
 
-        public ActionResult TestForm()
-        {
-            return View();
-        }
 
-        [HttpPost]
+       // [HttpPost]
         public ActionResult TestForm(/*[Bind(Exclude="Logintime")]GuestbookForm gbook*/
-            FormCollection form)
+            /*FormCollection form*/)
         {
           //  if ( !ModelState.IsValid ) {
           //  return View(); 
@@ -82,15 +78,29 @@ namespace MvcGuestBook.Controllers
             //ViewData.Model = form["Confirmedpassword"];
            // return RedirectToAction("Index", "Home");
 
-            GuestbookForm gbook = new GuestbookForm();
-            //UpdateModel<GuestbookForm>(gbook);
-            if (!TryUpdateModel<GuestbookForm>(gbook))
-            {
-                // 模型連結發生失敗
-                return View();
-            }
+            //GuestbookForm gbook = new GuestbookForm();
+            ////UpdateModel<GuestbookForm>(gbook);
+            //if (!TryUpdateModel<GuestbookForm>(gbook))
+            //{
+            //    // 模型連結發生失敗
+            //    return View();
+            //}
             
-            return Redirect("/");
+            //return Redirect("/");
+            ///////////////////////
+            //Dictionary<string, object> attr = new Dictionary<string, object>();
+            //attr.Add("size", "16");
+            //attr.Add("style", "color:red;");
+            //ViewData["Dictionary"] = attr;
+
+            //////////////////////
+            List<SelectListItem> listItem = new List<SelectListItem>();
+            listItem.Add(new SelectListItem { Text ="是", Value = "1"});
+            listItem.Add(new SelectListItem { Text = "否", Value = "0" });
+
+            ViewData["List"] = new SelectList(listItem, "Value", "Text", "");
+
+            return View();
         }
 
         protected override void Dispose(bool disposing)

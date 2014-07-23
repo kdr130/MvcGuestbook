@@ -3,10 +3,14 @@
 }
 
 <h2>TestFrom</h2>
-<form method="post">
-     Type 
-    <input type ="radio" name="Type" value="1" checked="checked" /> Type1
-    <input type ="radio" name="Type" value="2" checked="checked" /> Type2
+
+
+@*<form method="post">
+    Type 
+    <input type="radio" name="Type" value="1" checked="checked" />
+    Type1
+    <input type="radio" name="Type" value="2" checked="checked" />
+    Type2
     <br />
 
     Name
@@ -23,3 +27,30 @@
 
     <input type="submit" />
 </form>
+*@
+
+@*
+@using (Html.BeginForm("Index", "Guestbook", FormMethod.Post))
+{
+    @Html.Label("Username", "帳號")
+    @Html.TextBox("Username", "kevinlin", new { id="testID"})
+    <input type ="submit" />
+}
+*@
+
+
+@*@{
+    var htmlAttribute = ViewData["Dictionary"] as Dictionary<string, object>;
+}
+@Html.TextBox("Name", "Value", htmlAttribute)
+<br />
+@Html.Password("Password", "Value", htmlAttribute)
+<br />
+@Html.TextBox("Email", "Value", htmlAttribute)
+<br />
+@Html.TextBox("Tel", "Value", htmlAttribute)
+<br />
+@Html.Hidden("id", "1")
+*@
+
+@Html.DropDownList("List", ViewData["Item"] as SelectList, "請選擇")
